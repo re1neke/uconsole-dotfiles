@@ -1,0 +1,29 @@
+#
+### Fonts
+#
+	font = "Terminus"
+	font-size = 20
+
+#
+### Text theming
+#
+	text-color = #FBF1C7
+	selection-color = #FE8019
+
+#
+### Window theming
+#
+	width = 50%
+	height = 35%
+
+	background-color = #111111
+
+	outline-width = 0
+
+	border-width = 4
+	border-color = #FE8019
+
+#
+### Behaviour
+#
+	terminal = foot

@@ -1,0 +1,23 @@
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+#
+# vim: set ft=swayconfig:
+
+bar {
+    position bottom
+    font Terminus Bold 20
+    status_command $HOME/.config/sway/scripts/swaybar.sh
+	status_padding 0
+	separator_symbol " "
+
+	colors {
+        statusline #111111
+		separator  #111111
+        background #fe8019
+        inactive_workspace #d65f0e #d65f0e #111111
+        focused_workspace #111111 #111111 #fe8019
+		urgent_workspace #cc241d #cc241d #fbf1c7
+    }
+}

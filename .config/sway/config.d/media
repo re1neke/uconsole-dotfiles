@@ -1,0 +1,13 @@
+#
+# Media buttons
+#
+# vim: ft = swayconfig:
+
+# Sound bindings
+bindsym XF86AudioRaiseVolume exec amixer set Master -q 1%+
+bindsym XF86AudioLowerVolume exec amixer set Master -q 1%-
+bindsym XF86AudioMute exec amixer set Master -q toggle
+
+# Brightness bindings
+bindsym XF86MonBrightnessUp exec brightnessctl -- s +1
+bindsym XF86MonBrightnessDown exec brightnessctl -- s -1

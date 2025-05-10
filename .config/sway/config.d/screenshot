@@ -1,0 +1,38 @@
+#
+# Screenshot Mode:
+#
+# Select one of parts of the workspace to shot and save picture to folder or
+# clipboard.
+#
+# vim: ft = swayconfig:
+
+mode "screenshot" {
+
+	set $screenshot_file $HOME/Pictures/Screenshots/$(date +'%Y_%m_%d_%H%M%S.png')
+
+	bindsym --to-code s exec grimshot save screen $screenshot_file; mode "default"
+	bindsym --to-code Control+s \
+		exec grimshot copy screen $screenshot_file; mode "default" 
+
+	bindsym --to-code w \
+		exec grimshot save window $screenshot_file; mode "default"
+	bindsym --to-code Control+w \
+		exec grimshot copy window $screenshot_file; mode "default" 
+
+	bindsym --to-code z exec grimshot save area $screenshot_file; mode "default"
+	bindsym --to-code Control+z \
+		exec grimshot copy area $screenshot_file; mode "default"
+
+	bindsym --to-code a exec grimshot save active $screenshot_file; mode "default"
+	bindsym --to-code Control+a \
+		exec grimshot copy active $screenshot_file; mode "default" 
+
+	bindsym --to-code o exec grimshot save output $screenshot_file; mode "default"
+	bindsym --to-code Control+o \
+		exec grimshot copy output $screenshot_file; mode "default"
+
+
+	bindsym --to-code Return mode "default"
+	bindsym --to-code Escape mode "default"
+}
+bindsym --to-code $mod+p mode "screenshot"

@@ -1,0 +1,66 @@
+#
+# Main confiuration file.
+#
+# Based on the default config file, but some things was changed or added.
+#
+# vim: ft = swayconfig:
+
+# Logo key. Mod1 is for Alt.
+set $mod Mod1
+
+set $term foot
+set $menu tofi-drun | xargs swaymsg exec --
+
+font Terminus Bold 20
+
+default_border none
+titlebar_border_thickness 1
+workspace_layout tabbed
+
+client.focused #111111 #fe8019 #111111
+client.unfocused #111111 #1d2021 #bdae93
+
+### Output configuration
+#
+output * bg $HOME/.config/sway/tsutsugou.png center #111111
+output DSI-1 transform 90
+
+### Idle configuration
+exec swayidle -w \
+    timeout 60 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"'
+
+seat * hide_cursor 5000
+
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Run tofi with power options 
+    bindsym $mod+Shift+e exec $HOME/.config/sway/scripts/power.sh
+
+
+include config.d/navigation
+include config.d/screenshot
+include config.d/statusbar
+include config.d/media
+
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+        dbus-update-activation-environment --systemd \
+		DISPLAY WAYLAND_DISPLAY SWAYSOCK
